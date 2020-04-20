@@ -26,7 +26,7 @@ public class CalculatorFragment extends Fragment {
             minus;
     Button clear;
 
-    MainActivity listener;
+    
 
     public CalculatorFragment() {
 
@@ -60,7 +60,7 @@ public class CalculatorFragment extends Fragment {
         button0.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                listener.numberFild(v);
+                numberFild(v);
             }
         });
 
@@ -69,61 +69,61 @@ public class CalculatorFragment extends Fragment {
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                listener.numberFild(v);
+                numberFild(v);
             }
         });
         button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                listener.numberFild(v);
+                numberFild(v);
             }
         });
         button3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                listener.numberFild(v);
+                numberFild(v);
             }
         });
         button4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                listener.numberFild(v);
+                numberFild(v);
             }
         });
         button5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                listener.numberFild(v);
+                numberFild(v);
             }
         });
         button6.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                listener.numberFild(v);
+                numberFild(v);
             }
         });
         button7.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                listener.numberFild(v);
+                numberFild(v);
             }
         });
         button8.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                listener.numberFild(v);
+                numberFild(v);
             }
         });
         button9.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                listener.numberFild(v);
+                numberFild(v);
             }
         });
         tochka.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                listener.numberFild(v);
+                numberFild(v);
             }
         });
         minus.setOnClickListener(new View.OnClickListener() {
@@ -223,4 +223,10 @@ public class CalculatorFragment extends Fragment {
     public void clear() {
         number.setText(" ");
     }
+
+    public void numberFild(View view) {
+        number.append(((TextView) view).getText());
+
+    }
+
 }

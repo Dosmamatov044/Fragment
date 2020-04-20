@@ -48,10 +48,7 @@ public class MainActivity extends AppCompatActivity {
         transaction.commit();
     }
 
-    public void numberFild(View view) {
-        number.append(((TextView) view).getText());
 
-    }
 
 
 
