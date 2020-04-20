@@ -53,9 +53,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void clear() {
-        number.setText(" ");
-    }
+
 
 
 

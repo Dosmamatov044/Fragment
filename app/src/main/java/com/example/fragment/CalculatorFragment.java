@@ -63,6 +63,9 @@ public class CalculatorFragment extends Fragment {
                 listener.numberFild(v);
             }
         });
+
+
+
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -138,7 +141,7 @@ public class CalculatorFragment extends Fragment {
         clear.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                listener.clear();
+                clear();
             }
         });
         divide.setOnClickListener(new View.OnClickListener() {
@@ -216,4 +219,8 @@ public class CalculatorFragment extends Fragment {
 
 
         }
-}}
+}
+    public void clear() {
+        number.setText(" ");
+    }
+}
