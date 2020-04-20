@@ -1,5 +1,6 @@
 package com.example.fragment;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
@@ -14,7 +15,13 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity {
 
     TextView number;
+    TextView result;
+    Double firstValues, secondValues;
+    String operation;
 
+    private static final String FIRST = "FISRT";
+    private static final String SECOND = "SECOND";
+    private static final String OPERATION = "OPERATION";
 
 
     @Override
@@ -49,12 +56,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-
-
-
-
-
-
     public void shareOpen() {
         Intent intent = new Intent();
         intent.setAction(Intent.ACTION_SEND);
@@ -62,4 +63,45 @@ public class MainActivity extends AppCompatActivity {
         intent.setType("text/plain");
         startActivity(intent);
     }
-}
+
+
+
+
+    @Override
+    protected void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+
+        if (firstValues != null) {
+            outState.putDouble(FIRST, firstValues);
+        }
+        if (secondValues != null) {
+            outState.putDouble(SECOND, secondValues);
+        }
+        if (operation != null) {
+            outState.putString(OPERATION, operation);
+        } }
+
+
+    @Override
+    protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+
+        if (savedInstanceState != null) {
+            firstValues = savedInstanceState.getDouble(FIRST);
+            secondValues = savedInstanceState.getDouble(SECOND);
+            operation = savedInstanceState.getString(OPERATION);}
+
+
+    }
+    public void Save(View view) {
+        String text =result.getText().toString();
+        Intent intent= new Intent();
+        intent.putExtra("Результат",text);
+        setResult(RESULT_OK, intent);
+        finish();
+
+
+    }
+
+    }
+

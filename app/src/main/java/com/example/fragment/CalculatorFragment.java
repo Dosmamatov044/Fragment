@@ -1,8 +1,10 @@
 package com.example.fragment;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -15,6 +17,9 @@ import android.widget.TextView;
 
 
 public class CalculatorFragment extends Fragment {
+
+
+
     double firstValue;
     double secondValue;
     double result;
@@ -26,7 +31,7 @@ public class CalculatorFragment extends Fragment {
             minus;
     Button clear;
 
-    
+    MainActivity listener;
 
     public CalculatorFragment() {
 
@@ -228,5 +233,11 @@ public class CalculatorFragment extends Fragment {
         number.append(((TextView) view).getText());
 
     }
+
+
+
+
+
+
 
 }
