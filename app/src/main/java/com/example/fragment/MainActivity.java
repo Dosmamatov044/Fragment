@@ -4,21 +4,17 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
-import android.content.Context;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
-import android.widget.FrameLayout;
+
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
     TextView number;
-    double firstValue;
-    double secondValue;
-    double result;
-    String operation;
+
 
 
     @Override
@@ -61,54 +57,8 @@ public class MainActivity extends AppCompatActivity {
         number.setText(" ");
     }
 
-    public void onOperationClick(View view) {
-        switch (view.getId()) {
-            case R.id.plus:
-                firstValue = Double.valueOf(number.getText().toString());
-                number.setText(firstValue + "+");
-                operation = "+";
-                break;
-            case R.id.divide:
-                firstValue = Double.valueOf(number.getText().toString());
-                number.setText(firstValue + "/");
-                operation = "/";
-                break;
-            case R.id.multiply:
-                firstValue = Double.valueOf(number.getText().toString());
-                number.setText(firstValue + "*");
-                operation = "*";
-                break;
-            case R.id.minus:
-                firstValue = Double.valueOf(number.getText().toString());
-                number.setText(firstValue + "-");
-                operation = "-";
-                break;
-            case R.id.ravno:
-                String two = number.getText().toString().replace(firstValue + operation, "");
-                secondValue = Double.valueOf(two);
-                if (operation == "+") {
-                    result = firstValue + secondValue;
-                    number.setText(String.valueOf(result));
-                    operation = "+";
-                }
-                if (operation == "-") {
-                    result = firstValue - secondValue;
-                    number.setText(String.valueOf(result));
-                    operation = "-";
-                }
-                if (operation == "*") {
-                    result = firstValue * secondValue;
-                    number.setText(String.valueOf(result));
-                    operation = "*";
-                }
-                if (operation == "/") {
-                    result = firstValue / secondValue;
-                    number.setText(String.valueOf(result));
-                    operation = "/";
-                }
-                break;
-        }
-    }
+
+
 
     public void shareOpen() {
         Intent intent = new Intent();

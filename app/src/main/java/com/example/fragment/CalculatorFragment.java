@@ -9,15 +9,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.RelativeLayout;
+
 import android.widget.TextView;
 
 
-/**
- * A simple {@link Fragment} subclass.
- */
-public class CalculatorFragment extends Fragment {
 
+public class CalculatorFragment extends Fragment {
+    double firstValue;
+    double secondValue;
+    double result;
+    String operation;
 
     TextView number;
     Button button1, button2, button0, button3, button4, button5, button6,
@@ -28,7 +29,7 @@ public class CalculatorFragment extends Fragment {
     MainActivity listener;
 
     public CalculatorFragment() {
-        // Required empty public constructor
+
     }
 
 
@@ -125,13 +126,13 @@ public class CalculatorFragment extends Fragment {
         minus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                listener.onOperationClick(v);
+               onOperationClick(v);
             }
         });
         multiply.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                listener.onOperationClick(v);
+                onOperationClick(v);
             }
         });
         clear.setOnClickListener(new View.OnClickListener() {
@@ -143,24 +144,76 @@ public class CalculatorFragment extends Fragment {
         divide.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                listener.onOperationClick(v);
+                onOperationClick(v);
             }
         });
         ravno.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                listener.onOperationClick(v);
+                onOperationClick(v);
             }
         });
         plus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                listener.onOperationClick(v);
+                onOperationClick(v);
             }
         });
 
         return v;
     }
 
+    public void onOperationClick(View view) {
+        try {
 
-}
+
+            switch (view.getId()) {
+                case R.id.plus:
+                    firstValue = Double.valueOf(number.getText().toString());
+                    number.setText(firstValue + "+");
+                    operation = "+";
+                    break;
+                case R.id.divide:
+                    firstValue = Double.valueOf(number.getText().toString());
+                    number.setText(firstValue + "/");
+                    operation = "/";
+                    break;
+                case R.id.multiply:
+                    firstValue = Double.valueOf(number.getText().toString());
+                    number.setText(firstValue + "*");
+                    operation = "*";
+                    break;
+                case R.id.minus:
+                    firstValue = Double.valueOf(number.getText().toString());
+                    number.setText(firstValue + "-");
+                    operation = "-";
+                    break;
+                case R.id.ravno:
+                    String two = number.getText().toString().replace(firstValue + operation, "");
+                    secondValue = Double.valueOf(two);
+                    if (operation == "+") {
+                        result = firstValue + secondValue;
+                        number.setText(String.valueOf(result));
+                        operation = "+";
+                    }
+                    if (operation == "-") {
+                        result = firstValue - secondValue;
+                        number.setText(String.valueOf(result));
+                        operation = "-";
+                    }
+                    if (operation == "*") {
+                        result = firstValue * secondValue;
+                        number.setText(String.valueOf(result));
+                        operation = "*";
+                    }
+                    if (operation == "/") {
+                        result = firstValue / secondValue;
+                        number.setText(String.valueOf(result));
+                        operation = "/";
+                    }
+                    break;
+            }}catch (Exception e){
+
+
+        }
+}}
